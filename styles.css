@@ -8,7 +8,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   line-height: 1.6;
   color: #333;
-  background-color: #d8dbe0; /* Changed body background */
+  background-color: #d8dbe0;
 }
 .container {
   width: 90%;
@@ -16,7 +16,7 @@ body {
   margin: 0 auto;
 }
 
-/* Ensure the header spans full width and is flush to the edge */
+/* Header */
 header {
   position: fixed;
   top: 0;
@@ -25,35 +25,29 @@ header {
   background: #d8dbe0;
   box-shadow: 0 2px 5px rgba(216,219,224,255);
   padding: 10px 0;
+  z-index: 1000;  /* Ensure header stays on top */
 }
-
-/* Override container styles for header only */
 header .container {
   max-width: 100%;
   margin: 0;
-  padding: 0 20px;  /* Adjust if needed */
+  padding: 0 20px;
 }
-
-/* Use Flexbox to align items, logo on the left */
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
-/* Logo styling */
 .logo {
-  margin: 0; /* No extra margin */
+  margin: 0;
 }
 .logo h1 {
   margin: 0;
 }
 .logo h1 img {
-  max-width: 150px;  /* Set a fixed max-width */
+  max-width: 150px;
   height: auto;
   display: block;
 }
-
 nav ul {
   list-style: none;
   display: flex;
@@ -70,23 +64,31 @@ nav ul li a:hover {
 
 /* Hero Section */
 #hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero-tile.jpg') no-repeat center center/cover;
+  position: relative;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
+}
+.hero-bg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.hero-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-container {
+  position: relative;
+  z-index: 2; /* Content above the background image */
   text-align: center;
-  padding-top: 80px; /* account for fixed header */
   color: #fff;
+  padding-top: 80px; /* offset to avoid overlap with fixed header */
 }
-.hero-container h2 {
-  font-size: 3.5rem;
-  margin-bottom: 20px;
-}
-.hero-container p {
-  font-size: 1.3rem;
-  margin-bottom: 30px;
-}
+
+/* Button styling */
 .btn {
   background: #007BFF;
   color: #fff;
@@ -100,6 +102,7 @@ nav ul li a:hover {
 .btn:hover {
   background: #0056b3;
 }
+
 
 /* Catalog Section */
 #catalog {
