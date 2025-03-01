@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>US Sanitary Ware - Tiles Showroom</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <div class="logo">
+        <h1><img src="C:\Users\SURAJ\Downloads\Leonardo_Phoenix_10_A_modern_professional_and_minimalist_singl_0.jpg" alt=""></h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#catalog">Catalog</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#booking">Book Appointment</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="container hero-container">
+      <h2>Discover Premium Tiles</h2>
+      <p>Quality sanitary ware for modern design.</p>
+      <a href="#catalog" class="btn">View Catalog</a>
+    </div>
+  </section>
+
+  <!-- Catalog Section -->
+  <section id="catalog">
+    <div class="container">
+      <h2>Our Collection</h2>
+      <div class="gallery">
+        <div class="item">
+          <img src="tile1.jpg" alt="Elegant Tile" />
+          <p>Elegant Tile</p>
+        </div>
+        <div class="item">
+          <img src="tile2.jpg" alt="Modern Design" />
+          <p>Modern Design</p>
+        </div>
+        <div class="item">
+          <img src="tile3.jpg" alt="Classic Style" />
+          <p>Classic Style</p>
+        </div>
+        <!-- Add more items as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>
+        US Sanitary Ware is a premier tiles showroom dedicated to offering the finest quality sanitary tiles. Our curated collection brings together modern design, durability, and aesthetic appeal—perfect for elevating any space.
+      </p>
+    </div>
+  </section>
+
+  <!-- Booking Appointment Section -->
+  <section id="booking">
+    <div class="container">
+      <h2>Book an Appointment</h2>
+      <p>Schedule a visit to our showroom by clicking the button below:</p>
+      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSenJiHYO63dvCVKl586gT3fcUBQTgbyUQF2Vyv_LRzAH0tUTg/viewform?usp=dialog" target="_blank">Book Appointment</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 US Sanitary Ware. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Floating Calculator Icon -->
+  <div id="calcIcon">
+    <img src="C:\Users\SURAJ\Downloads\New folder\avd5sxepo.png" alt="Tile Calculator" />
+  </div>
+
+  <!-- Floating Booking Appointment Icon -->
+  <div id="bookIcon">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSenJiHYO63dvCVKl586gT3fcUBQTgbyUQF2Vyv_LRzAH0tUTg/viewform?usp=dialog" target="_blank">
+     
+      <span>Book Appointment</span>
+    </a>
+  </div>
+
+  <!-- Tile Calculator Modal -->
+  <div id="calcModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Tile Calculator</h2>
+      <p>Enter platform dimensions (in feet):</p>
+      <form id="calcForm">
+        <label for="platformLength">Length (ft):</label>
+        <input type="number" id="platformLength" min="0" step="0.1" required>
+        <label for="platformBreadth">Breadth (ft):</label>
+        <input type="number" id="platformBreadth" min="0" step="0.1" required>
+        <button type="submit">Calculate</button>
+      </form>
+      <div id="calcResults">
+        <!-- Results will be shown here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
