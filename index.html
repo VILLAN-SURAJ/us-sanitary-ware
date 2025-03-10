@@ -23,9 +23,16 @@
       padding: 20px 0;
     }
     header { background: #333; color: #fff; padding: 10px 0; }
-    .header-container { display: flex; align-items: center; justify-content: space-between; }
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
     header .logo h1 { margin: 0; }
-    nav ul { list-style: none; display: flex; }
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
     nav ul li { margin-left: 20px; }
     nav ul li a { color: #fff; text-decoration: none; }
     /* Hero Section */
@@ -43,13 +50,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-    /* Media Queries for Hero Section */
-    @media (max-width: 768px) {
-      #hero { height: 50vh; }
-    }
-    @media (max-width: 480px) {
-      #hero { height: 40vh; }
     }
     /* Catalog Section */
     #catalog { padding: 40px 0; background: #fff; }
@@ -166,6 +166,31 @@
       right: 15px;
     }
     .close:hover, .catalog-close:hover, .admin-close:hover { color: #000; }
+
+    /* Mobile Styles */
+    @media (max-width: 480px) {
+      .container { width: 95%; padding: 10px; }
+      .header-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav ul li {
+        margin: 5px 0;
+      }
+      #hero { height: 40vh; }
+      .gallery .item {
+        width: 100%;
+        height: auto;
+      }
+      /* Adjust floating icons for smaller screens */
+      #calcIcon, #bookIcon { bottom: 10px; }
+      #calcIcon { right: 10px; }
+      #bookIcon { right: 80px; }
+    }
   </style>
 </head>
 <body>
@@ -205,7 +230,7 @@
     <div class="container">
       <h2>Our Collection</h2>
       <div class="gallery">
-        <!-- Predefined catalog items (all images are displayed in a 250px square container) -->
+        <!-- Predefined catalog items (images displayed in 250px square containers on larger screens) -->
         <div class="item">
           <img src="catalog/WhatsApp Image 2025-03-04 at 4.54.06 AM (1).jpeg.jpg" alt="Elegant Tile" />
           <p>Elegant Tile</p>
