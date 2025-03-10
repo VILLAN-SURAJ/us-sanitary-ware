@@ -6,15 +6,102 @@
   <title>US Sanitary Ware - Tiles Showroom</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- External CSS -->
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Basic Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+      overflow: hidden;
+      padding: 20px 0;
+    }
+    header { background: #333; color: #fff; padding: 10px 0; }
+    .header-container { display: flex; align-items: center; justify-content: space-between; }
+    header .logo h1 { margin: 0; }
+    nav ul { list-style: none; display: flex; }
+    nav ul li { margin-left: 20px; }
+    nav ul li a { color: #fff; text-decoration: none; }
+    /* Hero Section */
+    #hero { position: relative; height: 400px; }
+    .hero-bg-container { width: 100%; height: 100%; overflow: hidden; }
+    .hero-bg { width: 100%; height: 100%; object-fit: cover; }
+    /* Catalog Section */
+    #catalog { padding: 40px 0; background: #fff; }
+    #catalog h2 { text-align: center; margin-bottom: 20px; }
+    .gallery {
+      display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;
+    }
+    .gallery .item {
+      background: #f9f9f9; padding: 10px; width: 250px; text-align: center; border: 1px solid #ddd;
+    }
+    .gallery .item img { max-width: 100%; height: auto; display: block; margin: auto; }
+    /* About Section */
+    #about { padding: 40px 0; background: #eee; }
+    #about h2 { text-align: center; margin-bottom: 20px; }
+    /* Booking Section */
+    #booking { padding: 40px 0; background: #fff; text-align: center; }
+    #booking .btn {
+      display: inline-block; padding: 10px 20px; background: #333; color: #fff;
+      text-decoration: none; border-radius: 4px;
+    }
+    /* Footer */
+    footer { background: #333; color: #fff; text-align: center; padding: 20px 0; }
+    /* Floating Icons */
+    #calcIcon, #bookIcon {
+      position: fixed; bottom: 20px; z-index: 1000; cursor: pointer;
+    }
+    #calcIcon { right: 20px; }
+    #bookIcon { right: 100px; }
+    #bookIcon span {
+      background: #333; color: #fff; padding: 5px 10px; border-radius: 4px;
+    }
+    /* Button for Adding Catalog Item */
+    #addCatalogBtn {
+      display: block; margin: 20px auto; padding: 10px 20px; background: #007BFF;
+      color: #fff; border: none; border-radius: 4px; cursor: pointer;
+    }
+    /* Modal Styles */
+    .modal {
+      display: none; position: fixed; z-index: 2000; left: 0; top: 0;
+      width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5);
+    }
+    .modal-content {
+      background-color: #fff; margin: 10% auto; padding: 20px; border: 1px solid #888;
+      width: 90%; max-width: 500px; position: relative; border-radius: 4px;
+    }
+    .modal-content h2 { margin-bottom: 10px; }
+    .modal-content label { display: block; margin: 10px 0 5px; }
+    .modal-content input,
+    .modal-content textarea {
+      width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .modal-content button {
+      padding: 10px 15px; background: #28a745; color: #fff; border: none;
+      border-radius: 4px; cursor: pointer;
+    }
+    .close, .catalog-close, .admin-close {
+      color: #aaa; float: right; font-size: 28px; font-weight: bold;
+      cursor: pointer; position: absolute; top: 10px; right: 15px;
+    }
+    .close:hover, .catalog-close:hover, .admin-close:hover { color: #000; }
+  </style>
 </head>
 <body>
   <!-- Header -->
   <header>
     <div class="container header-container">
       <div class="logo">
-        <h1><img src="catalog\Leonardo_Phoenix_10_A_modern_professional_and_minimalist_singl_0.jpg" alt=""></h1>
+        <h1>
+          <img src="catalog/Leonardo_Phoenix_10_A_modern_professional_and_minimalist_singl_0.jpg" alt="Logo" style="height:40px;">
+        </h1>
       </div>
       <nav>
         <ul>
@@ -27,33 +114,36 @@
     </div>
   </header>
 
+  <!-- Hero Section -->
   <section id="hero">
-    <!-- Background image wrapper -->
     <div class="hero-bg-container">
-      <img src="catalog\Screenshot 2025-03-01 162606.png" alt="Elegant Tile" class="hero-bg">
+      <img src="catalog/Screenshot 2025-03-01 162606.png" alt="Elegant Tile" class="hero-bg">
     </div>
-   
   </section>
-  
-  
+
+  <!-- Add Catalog Item Button -->
+  <div class="container">
+    <button id="addCatalogBtn">Add Catalog Item</button>
+  </div>
+
   <!-- Catalog Section -->
   <section id="catalog">
     <div class="container">
       <h2>Our Collection</h2>
       <div class="gallery">
+        <!-- Predefined catalog items -->
         <div class="item">
-          <img src="catalog\Screenshot 2025-03-01 165050.png" alt="Elegant Tile" />
+          <img src="catalog/Screenshot 2025-03-01 165050.png" alt="Elegant Tile" />
           <p>Elegant Tile</p>
         </div>
         <div class="item">
-          <img src="catalog\Screenshot 2025-03-01 165411.png" alt="Modern Design" />
+          <img src="catalog/Screenshot 2025-03-01 165411.png" alt="Modern Design" />
           <p>Modern Design</p>
         </div>
         <div class="item">
-          <img src="catalog\Screenshot 2025-03-01 165624.png" alt="Classic Style" />
+          <img src="catalog/Screenshot 2025-03-01 165624.png" alt="Classic Style" />
           <p>Classic Style</p>
         </div>
-        <!-- Add more items as needed -->
       </div>
     </div>
   </section>
@@ -85,14 +175,13 @@
   </footer>
 
   <!-- Floating Calculator Icon -->
-  <div id="calcIcon">
-    <img src="catalog\avd5sxepo.png" alt="Tile Calculator" />
+  <div id="calcIcon" style="position: fixed; bottom: 20px; right: 20px; cursor:pointer;">
+    <img src="catalog/avd5sxepo.png" alt="Tile Calculator" style="height:50px;">
   </div>
 
   <!-- Floating Booking Appointment Icon -->
-  <div id="bookIcon">
+  <div id="bookIcon" style="position: fixed; bottom: 20px; right: 100px; cursor:pointer;">
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSenJiHYO63dvCVKl586gT3fcUBQTgbyUQF2Vyv_LRzAH0tUTg/viewform?usp=dialog" target="_blank">
-     
       <span>Book Appointment</span>
     </a>
   </div>
@@ -104,19 +193,193 @@
       <h2>Tile Calculator</h2>
       <p>Enter platform dimensions (in feet):</p>
       <form id="calcForm">
-        <label for="platformLength">Length (ft):</label>
+        <label for="platformLength">Length / Height (ft):</label>
         <input type="number" id="platformLength" min="0" step="0.1" required>
-        <label for="platformBreadth">Breadth (ft):</label>
+        <label for="platformBreadth">Breadth / Width(ft):</label>
         <input type="number" id="platformBreadth" min="0" step="0.1" required>
         <button type="submit">Calculate</button>
       </form>
-      <div id="calcResults">
-        <!-- Results will be shown here -->
-      </div>
+      <div id="calcResults"></div>
     </div>
   </div>
 
-  <!-- External JavaScript -->
-  <script src="script.js"></script>
+  <!-- Catalog Modal for Adding New Items -->
+  <div id="catalogModal" class="modal">
+    <div class="modal-content">
+      <span class="catalog-close">&times;</span>
+      <h2>Add New Catalog Item</h2>
+      <form id="catalogForm">
+        <label for="catalogTitle">Title:</label>
+        <input type="text" id="catalogTitle" required>
+        <label for="catalogImageFile">Upload Image:</label>
+        <input type="file" id="catalogImageFile" accept="image/*" required>
+        <label for="catalogDescription">Description (optional):</label>
+        <textarea id="catalogDescription"></textarea>
+        <button type="submit">Add Item</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Login Modal -->
+  <div id="adminModal" class="modal">
+    <div class="modal-content">
+      <span class="admin-close">&times;</span>
+      <h2>Admin Login</h2>
+      <form id="adminForm">
+        <label for="adminUsername">Username:</label>
+        <input type="text" id="adminUsername" required>
+        <label for="adminPassword">Password:</label>
+        <input type="password" id="adminPassword" required>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Inline JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // -------------------------------
+      // Tile Calculator Functionality
+      // -------------------------------
+      const calcIcon = document.getElementById("calcIcon");
+      const calcModal = document.getElementById("calcModal");
+      const closeBtn = document.querySelector(".close");
+      const calcForm = document.getElementById("calcForm");
+      const calcResults = document.getElementById("calcResults");
+
+      calcIcon.addEventListener("click", () => {
+        calcModal.style.display = "block";
+      });
+      closeBtn.addEventListener("click", () => {
+        calcModal.style.display = "none";
+      });
+      window.addEventListener("click", (e) => {
+        if (e.target === calcModal) {
+          calcModal.style.display = "none";
+        }
+      });
+      calcForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const length = parseFloat(document.getElementById("platformLength").value);
+        const breadth = parseFloat(document.getElementById("platformBreadth").value);
+        if (isNaN(length) || isNaN(breadth) || length <= 0 || breadth <= 0) {
+          calcResults.innerHTML = "<p>Please enter valid positive numbers for both dimensions.</p>";
+          return;
+        }
+        const area = length * breadth;
+        const tiles2x2 = Math.ceil(area / 4);
+        const tiles2x4 = Math.ceil(area / 8);
+        const tiles1x2 = Math.ceil(area / 2);
+        calcResults.innerHTML = `
+          <h3>Results:</h3>
+          <p>Platform Area: ${area.toFixed(2)} sq ft</p>
+          <p>Tiles (2ft x 2ft): ${tiles2x2} tiles</p>
+          <p>Tiles (2ft x 4ft): ${tiles2x4} tiles</p>
+          <p>Tiles (1ft x 2ft): ${tiles1x2} tiles</p>
+        `;
+      });
+
+      // -------------------------------
+      // Catalog Addition with Local Image Upload and Persistence
+      // -------------------------------
+      const addCatalogBtn = document.getElementById("addCatalogBtn");
+      const catalogModal = document.getElementById("catalogModal");
+      const catalogCloseBtn = document.querySelector(".catalog-close");
+      const catalogForm = document.getElementById("catalogForm");
+      const galleryContainer = document.querySelector(".gallery");
+
+      // Function to add a catalog item element to the gallery
+      function addCatalogItemToGallery(item) {
+        const itemDiv = document.createElement("div");
+        itemDiv.classList.add("item");
+        const imgElement = document.createElement("img");
+        if (item.imageData) {
+          imgElement.src = item.imageData;
+        }
+        imgElement.alt = item.title;
+        const titleElement = document.createElement("p");
+        titleElement.textContent = item.title;
+        itemDiv.appendChild(imgElement);
+        itemDiv.appendChild(titleElement);
+        if (item.description) {
+          const descElement = document.createElement("p");
+          descElement.textContent = item.description;
+          itemDiv.appendChild(descElement);
+        }
+        galleryContainer.appendChild(itemDiv);
+      }
+
+      // Load stored catalog items from localStorage
+      const storedCatalogItems = JSON.parse(localStorage.getItem("catalogItems") || "[]");
+      storedCatalogItems.forEach(item => addCatalogItemToGallery(item));
+
+      // -------------------------------
+      // Admin Login Modal Functionality
+      // -------------------------------
+      const adminModal = document.getElementById("adminModal");
+      const adminCloseBtn = document.querySelector(".admin-close");
+      const adminForm = document.getElementById("adminForm");
+
+      addCatalogBtn.addEventListener("click", () => {
+        // Open admin login modal when trying to add a catalog item
+        adminModal.style.display = "block";
+      });
+      adminCloseBtn.addEventListener("click", () => {
+        adminModal.style.display = "none";
+      });
+      window.addEventListener("click", (e) => {
+        if (e.target === adminModal) {
+          adminModal.style.display = "none";
+        }
+      });
+      adminForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const username = document.getElementById("adminUsername").value;
+        const password = document.getElementById("adminPassword").value;
+        // Check admin credentials
+        if (username === "suraj" && password === "8052") {
+          adminModal.style.display = "none";
+          catalogModal.style.display = "block";
+        } else {
+          alert("Incorrect admin credentials.");
+        }
+      });
+
+      // Close catalog modal (click outside modal)
+      window.addEventListener("click", (e) => {
+        if (e.target === catalogModal) {
+          catalogModal.style.display = "none";
+        }
+      });
+      catalogCloseBtn.addEventListener("click", () => {
+        catalogModal.style.display = "none";
+      });
+
+      // Handle catalog form submission
+      catalogForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const title = document.getElementById("catalogTitle").value;
+        const imageFileInput = document.getElementById("catalogImageFile");
+        const description = document.getElementById("catalogDescription").value;
+        if (!title || imageFileInput.files.length === 0) {
+          alert("Please fill out the required fields (Title and select an Image file).");
+          return;
+        }
+        const file = imageFileInput.files[0];
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          const imageData = event.target.result;
+          const newCatalogItem = { title, imageData, description };
+          let catalogItems = JSON.parse(localStorage.getItem("catalogItems") || "[]");
+          catalogItems.push(newCatalogItem);
+          localStorage.setItem("catalogItems", JSON.stringify(catalogItems));
+          addCatalogItemToGallery(newCatalogItem);
+          catalogForm.reset();
+          catalogModal.style.display = "none";
+        };
+        reader.readAsDataURL(file);
+      });
+    });
+  </script>
 </body>
 </html>
